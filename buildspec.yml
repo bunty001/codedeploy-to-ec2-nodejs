@@ -13,4 +13,4 @@ phases:
 artifacts:
   type: zip
   paths:
-    - '*'
+    - 'https://s3.console.aws.amazon.com/s3/buckets/nodejsbucket1?region=us-east-1'
