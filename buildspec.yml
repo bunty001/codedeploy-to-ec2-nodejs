@@ -9,7 +9,14 @@ phases:
       - echo "Package & Dependicies are getting installed"
       - npm -f install
       - echo "Packages have been installed"
-      - echo "Storing Build Artifact to the Location"
+      - echo "This is build phase... Zipping my lambda function"
+      - zip -r mylembda-fuction.zip lambda_function.py
+
+post_build:
+    commands:
+    - echo "Deploying to the Lambda"
+    - aws lambda update-function-code --function-name mylembda-fuction --zip-file fileb://mylembda-fuction.zip
+
 artifacts:
   type: zip
   paths:
